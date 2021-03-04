@@ -1,0 +1,47 @@
+@model MVCPrototipo.Models.Comentario
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Comentario</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Alumno" class="control-label"></label>
+                <input asp-for="Alumno" class="form-control" />
+                <span asp-validation-for="Alumno" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Puntaje" class="control-label"></label>
+                <input asp-for="Puntaje" class="form-control" />
+                <span asp-validation-for="Puntaje" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ComentarioTexto" class="control-label"></label>
+                <input asp-for="ComentarioTexto" class="form-control" />
+                <span asp-validation-for="ComentarioTexto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CursoId" class="control-label"></label>
+                <select asp-for="CursoId" class ="form-control" asp-items="ViewBag.CursoId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

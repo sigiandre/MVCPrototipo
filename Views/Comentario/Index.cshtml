@@ -1,0 +1,53 @@
+@model IEnumerable<MVCPrototipo.Models.Comentario>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Comentario acerca de los Cursos</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Alumno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Puntaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComentarioTexto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Puntaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComentarioTexto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.CursoId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ComentarioId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ComentarioId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ComentarioId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

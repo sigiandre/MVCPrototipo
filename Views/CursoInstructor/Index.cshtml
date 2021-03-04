@@ -1,0 +1,49 @@
+@model IEnumerable<MVCPrototipo.Models.CursoInstructor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Curso e Instructor</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Instructor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instructor.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Curso.Titulo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructor.InstructorId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.CursoId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructor.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Curso.Titulo)
+            </td>
+            <td></td>
+        </tr>
+}
+    </tbody>
+</table>
